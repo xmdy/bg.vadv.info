@@ -24,9 +24,6 @@
       - @page.categories.each do |category|
         %a{ :href => category.abspath }= category.heading
 
-  = %script{:charset => "utf-8", :src => "//yandex.st/share/share.js", :type => "text/javascript"}
-    .yashare-auto-init{"data-yashareL10n" => "ru", "data-yashareQuickServices" => "yaru,vkontakte,facebook,twitter,lj", "data-yashareType" => "icon"}
-
   = haml :comments, :layout => false
 
 = haml :sidebar, :layout => false
