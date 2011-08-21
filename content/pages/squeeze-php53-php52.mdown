@@ -7,7 +7,7 @@ Keywords: debian, php 5.2, php 5.2, squeeze
 #Debian squeeze даунгрейд php5.3 -> php5.2
 
 <code>В /etc/apt/source.list</code> (по идее для лучшего понимания такие вещи ложить: <code>/etc/apt/source.list.d/REPO.list</code>)
-подпключаем репозитарии lenny (предыдущая версия дистрибутива):
+подключаем репозитарии lenny (предыдущая версия дистрибутива):
 
 <code>deb http://ftp.ru.debian.org/debian/ lenny main contrib non-free</code>
 
@@ -37,7 +37,6 @@ Pin-Priority: 600</code>
 желательно без удаления самого php. После того, как почистили пакеты и записали их, удаляем сначала <code>libapache2-mod-php5</code> а потом и php с машины.
 
 После этого приступаем к инсталу php, все просто:
-
 <code>aptitude install -t oldstable php5-(те самые пакеты, что удалили)</code>
 
 Потом заворачиваем бороду опять и инсталим те пакеты, которые были удалены по зависимостям.
