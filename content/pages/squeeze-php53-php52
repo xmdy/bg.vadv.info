@@ -1,0 +1,42 @@
+Date: 21 August 2011
+Categories: debian, php, squeeze, downgrade
+Keywords: debian, php 5.2, php 5.2, squeeze
+
+# Debian squeeze php5.3 -> php5.2
+
+В /etc/apt/source.list (по идее для лучшего понимания такие вещи ложить: /etc/apt/source.list.d/REPO.list)
+подпключаем репозитарии lenny (предыдущая версия дистрибутива):
+
+deb http://ftp.ru.debian.org/debian/ lenny main contrib non-free
+
+Не делаем aptitute update, смотрим, какие пакеты нужно даунгрейдить:
+
+dpkg -l | grep php5
+
+Их сначала нужно удалить, чтобы установить более старые версии.
+По умолчанию политика у debian такая: должно устонавливать более свежий пакет, но этой политикой можно рулить из файла:
+/etc/apt/preferences (/etc/apt/preferences.d/POLICY):
+
+Package: php5*
+Pin: release a=oldstable
+Pin-Priority: 700
+
+Package: *
+Pin: release a=stable
+Pin-Priority: 600
+
+
+Удаляем пакеты:
+
+aptitude remove `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`
+
+Ага... и тут у нас вылезла длинная "борода" из пакетов, которые зависят от php5, отлично, удаляем их аккуратно, оставляя данные на месте, по одному
+желательно без удаления самого php. После того, как почистили пакеты и записали их, удаляем сначала libapache2-mod-php5 а потом и php с машины.
+
+После этого приступаем к инсталу php, все просто:
+
+aptitude install -t oldstable php5-(те самые пакеты, что удалили)
+
+Потом заворачиваем бороду опять и инсталим те пакеты, которые были удалены по зависимостям.
+
+Теперь любой инстал php5-ext* необходимо проводить с префиксом -t oldstable (то самое, что мы подключили в самом начале)
