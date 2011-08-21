@@ -1,0 +1,32 @@
+// Layout
+
+$full_width: 960px;
+$content_width: 700px;
+$sidebar_width: 240px;
+
+
+$tint: #CBCAC5; /* yellow grey */
+
+$bg: $tint;
+$content_bg: $tint + #111;
+$dark_bg: $tint - #222;
+
+
+
+$background-highlight: #D0CFC9;
+
+/* text */
+$base-color: $tint - #888888;
+
+
+$dark-tint: $tint - #aaaaaa;
+$light-tint: $tint + #222;
+
+$border-color: $tint + #111111;
+
+$accent: #EE832D;
+
+@import "reset";
+@import "typography";
+@import "layout";
+@import "style";
