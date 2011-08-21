@@ -1,5 +1,7 @@
 Date: 21 August 2011
-Categories: debian, php, squeeze
+#Categories: debian, php, squeeze
+Summary: This is a blog post about carrots. Juicy orange carrots!
+Read more: Find out about this superb vegetable
 Keywords: debian, php 5.2, php 5.2, squeeze
 
 #Debian squeeze php5.3 -> php5.2
