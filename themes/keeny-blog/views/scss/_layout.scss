@@ -1,0 +1,90 @@
+// Layout
+
+// utility classes
+
+.container {
+  width: 54em;
+  margin: 0 auto;
+}
+
+/* ======================= */
+/* = Header & Navigation = */
+/* ======================= */
+
+div#header {
+
+  .container {
+    padding: 2px 0 0 0;
+    position: relative;
+    
+    ul.nav {
+      float: right;
+      list-style: none;
+      margin: 0 225px 0 0;
+      position: relative;
+      bottom: -11px;
+      
+      li {
+        float: left;
+        margin: 0 0 0 2px;
+
+        a {
+          display: block;
+          padding: 6px 6px;
+          text-decoration: none;
+        }
+      }
+    }
+    
+  }
+  
+}
+
+div#container {
+  width: 54em;
+  margin: 0 auto;
+  
+  div.breadcrumb {
+    padding: 0.5em 1.1em;
+    font-size: 0.909em;
+  }
+  div#content {
+    width: $content-width;
+    float: left;
+    padding: 1px 1em;
+  }
+  .sidebar {
+    width: 12em;
+    margin: 10px 0 0 40em;
+    padding: 1px 1em;
+  }
+  div#footer {
+    clear: both;
+    padding: 0 1em;
+    
+    p {
+      width: $content-width;
+      margin: 0;
+      padding: 1em 0;
+    }
+  }
+  
+}
+
+/* ============ */
+/* = Clearfix = */
+/* ============ */
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix{min-height: 0;} /* IE 7 */
+* html .clearfix{height: 1%;} /* IE 6 */
+
+.clear {
+	clear: both;
+}

@@ -1,0 +1,29 @@
+// Variables
+
+$content-width: 37em;
+
+$tint: #CBCAC5; /* yellow grey */
+
+$background-tint: $tint;
+$background-highlight: #D0CFC9;
+
+/* text */
+$base-color: $tint - #888888;
+
+
+$dark-tint: $tint - #aaaaaa;
+$light-tint: $tint + #222;
+
+$border-color: $tint + #111111;
+
+$accent: #EE832D;
+
+
+$h1-scale: 2.18;
+$h2-scale: 1.64;
+$h3-scale: 1.45;
+$h4-scale: 1.18;
+
+@import "typography";
+@import "layout";
+@import "style";
