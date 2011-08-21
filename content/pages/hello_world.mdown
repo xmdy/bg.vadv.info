@@ -1,5 +1,0 @@
-Date: 21 August 2011
-
-# Hello article
-
-Hello world!
