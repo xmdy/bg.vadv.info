@@ -11,25 +11,35 @@ Keywords: debian, php 5.2, php 5.2, squeeze
 
 <code>deb http://ftp.ru.debian.org/debian/ lenny main contrib non-free</code>
 
+
 Не делаем aptitute update, смотрим, какие пакеты нужно даунгрейдить:
 
 <code>dpkg -l | grep php5</code>
+
 
 Их сначала нужно удалить, чтобы установить более старые версии.
 По умолчанию политика у debian такая: должно устонавливать более свежий пакет, но этой политикой можно рулить из файла:
 /etc/apt/preferences (/etc/apt/preferences.d/POLICY):
 
-<code>Package: php5*
+<code>
+Package: php5*
+
 Pin: release a=oldstable
+
 Pin-Priority: 700
 
+
 Package: *
+
 Pin: release a=stable
+
 Pin-Priority: 600</code>
+
 
 Удаляем пакеты:
 
 <code>aptitude remove `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`</code>
+
 
 Ага... и тут у нас вылезла длинная "борода" из пакетов, которые зависят от php5, отлично, удаляем их аккуратно, оставляя данные на месте, по одному
 желательно без удаления самого php. После того, как почистили пакеты и записали их, удаляем сначала libapache2-mod-php5 а потом и php с машины.
@@ -37,6 +47,7 @@ Pin-Priority: 600</code>
 После этого приступаем к инсталу php, все просто:
 
 <code>aptitude install -t oldstable php5-(те самые пакеты, что удалили)</code>
+
 
 Потом заворачиваем бороду опять и инсталим те пакеты, которые были удалены по зависимостям.
 
