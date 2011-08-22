@@ -2,7 +2,7 @@ Date: 21 August 2011
 #Categories: debian, php, squeeze
 Summary: Как понизить версию php в debian squeeze
 Read more: читать иснтрукции
-Keywords: debian, php 5.2, php 5.2, squeeze
+Keywords: debian, php 5.3, php 5.2, squeeze
 
 #Debian squeeze даунгрейд php5.3 -> php5.2
 
@@ -16,7 +16,7 @@ Keywords: debian, php 5.2, php 5.2, squeeze
 <code>dpkg -l | grep php5</code>
 
 Их сначала нужно удалить, чтобы установить более старые версии.
-По умолчанию политика у debian такая: должно устонавливать более свежий пакет, но этой политикой можно рулить из файла:
+По умолчанию политика у debian такая: должно устанавливать более свежий пакет, но этой политикой можно рулить из файла:
 <code>/etc/apt/preferences</code> (<code>/etc/apt/preferences.d/POLICY</code>):
 
 <code>
